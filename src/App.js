@@ -1,3 +1,18 @@
+function MyComp2() {
+  let name = "손흥민";
+  let age = 33;
+
+  //{} jsx에서 js 코드 작성하기 위한 기호
+  return (
+    <>
+      <h1>hello react</h1>
+      <h1>hello {name}</h1>
+      <h1>{age} years</h1>
+      <h1>{age * 2} double years</h1>
+      <h1>{name + "선수"}</h1>
+    </>
+  );
+}
 function App() {
   // jsx에서 태그 사용시 꼭 종료 태그를 작성해야 한다.
   // 빈 요소이면 시작태그에서 종료

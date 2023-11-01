@@ -1,15 +1,17 @@
-import { MyBox, MyElem, MyContainer } from "./component/MyBox";
-import { name, address, person } from "./component/MyBox"; // 변수 import
+import asdfasdf, { address, MyElem } from "./component/MyElem";
+import MyBox, { country, person } from "./component/MyBox";
 
 function App() {
-  console.log("name", name);
-  console.log("address", address);
-  console.log("person", person);
   return (
     <>
-      <MyBox />
       <MyElem />
-      <MyContainer />
+      <h1>{address}</h1>
+      <h1>{asdfasdf}</h1>
+      <MyBox />
+      <h1>{country}</h1>
+      <h1>
+        {person.name},{person.age}
+      </h1>
     </>
   );
 }

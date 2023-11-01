@@ -1,4 +1,4 @@
-import "../style/mystyle.css";
+import myStyle from "../style/mystyle.module.css";
 export default function MyText() {
   return (
     <>
@@ -6,7 +6,7 @@ export default function MyText() {
       {/* mystyle 파일 생성*/}
       {/* */}
       <div>
-        <h1 className="error">Lorem ipsum dolor sit amet.</h1>
+        <h1 className={myStyle.error}>Lorem ipsum dolor sit amet.</h1>
       </div>
     </>
   );

@@ -1,16 +1,13 @@
-import MyBox, { address } from "./component/MyBox";
-import MyElem, { address as myAddress } from "./component/MyElem";
+// style 적용 방법
 
-// alias로 named export 값을 import 할 때 별칭을 줄 수 있음.
+import { MyComp } from "./component/MyComp";
+import { MyBox } from "./component/MyBox";
 
 function App() {
   return (
     <>
+      <MyComp />
       <MyBox />
-      <h1>{address}</h1>
-
-      <MyElem />
-      <h1>{myAddress}</h1>
     </>
   );
 }

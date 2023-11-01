@@ -52,6 +52,7 @@ class Welcome extends React.Component {
 * 컴포넌트명은 대문자로 시작한다.
 * 빌트인 컴포넌트명은 소문자로 시작한다.
 
+
 ```js
 function MyComp(props) {
   // 구조분해 할당
@@ -61,3 +62,6 @@ function MyComp(props) {
   // value = props.value
   // address = props.value
 ```
+
+## 컴포넌트 파일
+* 작성된 컴포넌트를 따로 js파일로 빼서 export하고 실행 컴포넌트 (예:App())에서 import해서 사용할 수 있음.

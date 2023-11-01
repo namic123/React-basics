@@ -1,17 +1,16 @@
-import asdfasdf, { address, MyElem } from "./component/MyElem";
-import MyBox, { country, person } from "./component/MyBox";
+import MyBox, { address } from "./component/MyBox";
+import MyElem, { address as myAddress } from "./component/MyElem";
+
+// alias로 named export 값을 import 할 때 별칭을 줄 수 있음.
 
 function App() {
   return (
     <>
-      <MyElem />
-      <h1>{address}</h1>
-      <h1>{asdfasdf}</h1>
       <MyBox />
-      <h1>{country}</h1>
-      <h1>
-        {person.name},{person.age}
-      </h1>
+      <h1>{address}</h1>
+
+      <MyElem />
+      <h1>{myAddress}</h1>
     </>
   );
 }

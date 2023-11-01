@@ -1,14 +1,15 @@
-// export된 컴포넌트(변수, 함수, 객체)를 import 사용 가능
-import { MyElem } from "./component/MyElem";
-import { MyComp } from "./component/MyComp";
-import { MyHeader } from "./component/MyHeader";
+import { MyBox, MyElem, MyContainer } from "./component/MyBox";
+import { name, address, person } from "./component/MyBox"; // 변수 import
 
 function App() {
+  console.log("name", name);
+  console.log("address", address);
+  console.log("person", person);
   return (
     <>
-      <MyHeader />
-      <MyComp />
+      <MyBox />
       <MyElem />
+      <MyContainer />
     </>
   );
 }

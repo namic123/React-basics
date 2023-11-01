@@ -1,29 +1,27 @@
 function App() {
   return (
     <>
-      <h1
-        className="note"
-        style={{ backgroundColor: "blue", color: "white" }}
-        title="제목 요소"
-      >
-        Lorem.
-      </h1>
-      <p title="문단 요소">Lorem ipsum dolor.</p>
-      <MyComp title="내 컴포넌트" name={"흥민"} />
-      <MyComp title="I am 컴포넌트" name={"강인"} />
+      <MyComp value={"흥민"} address="신촌" />
+      <MyComp value={"강인"} address="강남" />
     </>
   );
 }
-// 함수 인자로
-// 사용한 곳에서 넘긴 property들이 객체형태로 담김
-// 예) title="내 컴포넌트" name={"흥민"} => {title: "내 컴포넌트", name:"흥민"}
 
 function MyComp(props) {
-  console.log("MyComp가 받은 property는 ?", props.title, "name은", props.name);
+  // 구조분해 할당
+  // function MyComp({value, address}) 이렇게 작성도 가능
+  // 구조 분해 할당 방식이 더 많이 ㅏ용됨
+  let { value, address } = props;
+  // value = props.value
+  // address = props.value
   return (
-    <div>
-      <h1 title={props.title}>hello {props.name}</h1>
-    </div>
+    <>
+      <div>
+        <h1>
+          {value}는 {address}에 산다.
+        </h1>
+      </div>
+    </>
   );
 }
 export default App;

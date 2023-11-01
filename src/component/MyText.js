@@ -6,7 +6,9 @@ export default function MyText() {
       {/* mystyle 파일 생성*/}
       {/* */}
       <div>
-        <h1 className={myStyle.error}>Lorem ipsum dolor sit amet.</h1>
+        <h1 className={`${myStyle.error} ${myStyle.special} ${myStyle.coffee}`}>
+          Lorem ipsum dolor sit amet.
+        </h1>
       </div>
     </>
   );

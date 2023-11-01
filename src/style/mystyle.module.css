@@ -2,3 +2,10 @@
     color:white;
     background-color: tomato;
 }
+
+.special{
+    border: 5px dotted gold;
+}
+.coffee{
+    text-decoration: underline;
+}

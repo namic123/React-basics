@@ -41,3 +41,16 @@ export function MyContainer() {
 }
 
 ```
+
+## template literal을 이용한 css 모듈 사용
+```js
+        <h1 className={`${style.boxClass} ${style.error} ${style.note}`}>
+          Lorem ipsum dolor sit amet.
+        </h1>
+```
+## 배열 join을 이용한 css 모듈 사용
+```js
+        <h1 className={[style.boxClass, style.error, style.note].join(" ")}>
+          Lorem ipsum dolor sit amet.
+        </h1>
+```

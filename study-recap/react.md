@@ -51,3 +51,13 @@ class Welcome extends React.Component {
 ## 컴포넌트 명명 규칙
 * 컴포넌트명은 대문자로 시작한다.
 * 빌트인 컴포넌트명은 소문자로 시작한다.
+
+```js
+function MyComp(props) {
+  // 구조분해 할당
+  // function MyComp({value, address}) 이렇게 작성도 가능
+  // 구조 분해 할당 방식이 더 많이 ㅏ용됨
+  let { value, address } = props;
+  // value = props.value
+  // address = props.value
+```

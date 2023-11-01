@@ -3,7 +3,7 @@ export function MyBox() {
   return (
     <>
       <div>
-        <h1 className={mycss.boxClass}>
+        <h1 className={`${mycss.boxClass}`}>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem,
           itaque.
         </h1>

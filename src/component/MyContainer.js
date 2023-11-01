@@ -1,9 +1,15 @@
 import style from "../style/style2.module.css";
+
 export function MyContainer() {
   return (
     <>
-      <div className={style.boxClass}>
-        <h1>Lorem ipsum dolor sit amet.</h1>
+      <div>
+        <h1 className={`${style.boxClass} ${style.error} ${style.note}`}>
+          Lorem ipsum dolor sit amet.
+        </h1>
+        <h1 className={[style.boxClass, style.error, style.note].join(" ")}>
+          Lorem ipsum dolor sit amet.
+        </h1>
       </div>
     </>
   );

@@ -25,9 +25,10 @@ function App(props) {
             console.log("button3!!");
           }}
         >
-          Button3
+          Button4
         </MyComp>
       </div>
     </>
   );
 }
+export default App;

@@ -1,22 +1,23 @@
 import { Box, Flex } from "@chakra-ui/react";
 
-function App() {
+function MyComp({ text, address, children }) {
   return (
     <>
-      <Flex
-        w={"100%"}
-        h={"100px"}
-        bg={"gray.300"}
-        gap={3}
-        align={"center"}
-        justify={"space-around"}
-      >
-        <Box bg={"gold"}>Lorem.</Box>
-        <Box bg={"red"}>Amet.</Box>
-        <Box bg={"gray"}>Eligendi.</Box>
-        <Box bg={"blue"}>Molestiae.</Box>
-        <Box bg={"green"}>Qui?</Box>
-      </Flex>
+      <p>{text}</p>
+      <p>{address}</p>
+      <p>{children}</p> {/*App의 MyComp 내부 컨텐츠의 요소*/}
+    </>
+  );
+}
+
+function App(props) {
+  return (
+    <>
+      <div>
+        <MyComp text={"hello"} address={"seoul"}>
+          some contents 다른 컴포넌트가 있을 수 있다.
+        </MyComp>
+      </div>
     </>
   );
 }

@@ -22,7 +22,7 @@ function List() {
 }
 ```
 
-### event bubbling
+### event bubbling, event.stopPropagation()
 * DOM 이벤트 전파의 한 방식.
 * 웹 페이지에서 어떤 요소에서 이벤트가 발생하면, 그 이벤트는 해당 요소에서 시작해서 DOM트리를 거슬러 올라가면서 상위 요소로 전파된다.
 * 이것을 bubbling이라고함.
@@ -34,3 +34,4 @@ function List() {
 * 위에서 버튼 요소를 클릭했을 때, 클릭 이벤트는 button에 대한 이벤트 핸들러를 호출한 후 
 * 바로 상위 요소인 div의 이벤트 핸들러를 호출한다.
 * 이것은 계속해서 문서의 루트 요소에 이를 때까지 계속된다.
+* 이때 bubbling을 방지하고자하는 메서드가 stopPropagation()

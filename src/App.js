@@ -1,39 +1,21 @@
+// React 라이브러리와 useState Hook을 불러옴
 import React, { useState } from "react";
-import { Button, Input } from "@chakra-ui/react";
+import { Button, Text } from "@chakra-ui/react";
 
 function App(props) {
-  // 상태(state)가 변경(이전 state와 달라짐)되면
-  // Component를 다시 그림 (re render)
+  // useState Hook을 사용하여 'number'라는 상태 변수와 이 상태를 변경할 수 있는 'setNumber' 함수를 선언.
+  // 'number'의 초기 값은 0.
+  const [number, setNumber] = useState(0);
 
-  // state : react가 관리하는 component의 값
-
-  // state를 얻는 방법
-  // useState();
-
-  // 배열을 리턴함
-  // index 0 : 현재상태(state)
-  // index 1 : state를 변경할 수 있는 메소드
-  // const [message, setMessage] = useState("");
-  const [message, setMessage] = useState("");
-
-  // 상태가 바뀔 때에만 컴포넌트가 re render됨
-
-  let text = "초기 메시지";
-  function handleInputChange(e) {
-    text = e.target.value;
-    console.log("text", text);
-  }
-
-  function handleButtonClick(e) {
-    setMessage("바뀐 상태");
+  // 'handleClick' 함수는 버튼 클릭 시 호출되며, 'setNumber' 함수를 사용하여
+  // 현재 'number' 상태에 1을 더해 업데이트
+  function handleClick() {
+    setNumber(number + 1);
   }
   return (
     <div>
-      <Input onChange={handleInputChange} />
-      <p>{text}</p>
-      <Button onClick={handleButtonClick}>상태 바꾸기</Button>
-      <Button onClick={() => setMessage("")}>빈 문자열로 바꾸기</Button>
-      <p>{message}</p>
+      <Button onClick={handleClick}> 바꾸기</Button>
+      <Text>{number}</Text>
     </div>
   );
 }

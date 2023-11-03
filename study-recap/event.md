@@ -34,4 +34,4 @@ function List() {
 * 위에서 버튼 요소를 클릭했을 때, 클릭 이벤트는 button에 대한 이벤트 핸들러를 호출한 후 
 * 바로 상위 요소인 div의 이벤트 핸들러를 호출한다.
 * 이것은 계속해서 문서의 루트 요소에 이를 때까지 계속된다.
-* 이때 bubbling을 방지하고자하는 메서드가 stopPropagation()
+* 이때 bubbling을 방지하고자 하는 메서드가 stopPropagation()

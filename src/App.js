@@ -1,32 +1,47 @@
 import React, { useState } from "react";
-import { Button, Input, List, ListItem } from "@chakra-ui/react";
+import { Box, Button, ListItem, UnorderedList } from "@chakra-ui/react";
 
 function App(props) {
-  const [coffees, setCoffees] = useState(["라떼"]);
-  const [text, setText] = useState("");
+  const [foods, setFoods] = useState([]);
+  function handleButtonClick(food) {
+    setFoods([...foods, food]);
+  }
 
-  function handleButtonClick() {
-    // 직전 상태 배열을 조작하면 안된다.
-    // 동일한 참조값을 사용하기 때문에 renderer는 변경사항이 없다고 생각하여 rerendering을 하지 않는다.
-    // coffees.push(text);
+  function handleRemoveButtonClick(index) {
+    console.log(index + "번 째 아이템 지우기");
+    // const nextFoods = [...foods];
 
-    // 새 배열을 만들어서 set state 해야 함
-    const newCoffees = [...coffees]; // 배열 복사
-    newCoffees.push(text);
+    // splice()
+    /*    // splice는 배열을 변경하는 데 사용(추가,제거 또는 교체)
+    // 1번쨰 인덱스에는 변경을 시작할 인덱스
+    // 2번째 인덱스는 제거할 요소의 개수
+    // 그 뒤에 나요는 배열은 배열에 추가될 요소들이다.
+    // nextFoods.splice(index, 1);*/
 
-    setCoffees(newCoffees);
+    // filter()
+    // nextFoods는 필터링 결과를 저장하는 '새' 배열이므로, 리렌더링 가능
+    // const nextFoods = foods.filter((item,i)=>i!=index);
+
+    setFoods(foods.filter((item, i) => i != index));
   }
 
   return (
     <div>
-      <Input value={text} onChange={(e) => setText(e.target.value)} />
-      <Button onClick={handleButtonClick}>추가</Button>
-
-      <List>
-        {coffees.map((c, index) => (
-          <ListItem key={index}>{c}</ListItem>
-        ))}
-      </List>
+      <Button onClick={() => handleButtonClick("커피")}>커피</Button>
+      <Button onClick={() => handleButtonClick("케잌")}>케잌</Button>
+      <Button onClick={() => handleButtonClick("아이스")}>아이스크림</Button>
+      <Box>
+        <UnorderedList>
+          {foods.map((item, index) => (
+            <ListItem key={index}>
+              {item}
+              <Button onClick={() => handleRemoveButtonClick(index)}>
+                지우기
+              </Button>
+            </ListItem>
+          ))}
+        </UnorderedList>
+      </Box>
     </div>
   );
 }

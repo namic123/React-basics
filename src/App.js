@@ -7,6 +7,7 @@ function App() {
 
   function handleButtonClick() {
     setItems([...items, text]);
+    setText("");
   }
 
   function handleRemoveButtonClick(index) {

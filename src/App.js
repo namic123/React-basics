@@ -6,7 +6,8 @@ function App(props) {
   const [text, setText] = useState("");
 
   function handleButtonClick() {
-    // 직전 상태 배열을 조작하면 안되고
+    // 직전 상태 배열을 조작하면 안된다.
+    // 동일한 참조값을 사용하기 때문에 renderer는 변경사항이 없다고 생각하여 rerendering을 하지 않는다.
     // coffees.push(text);
 
     // 새 배열을 만들어서 set state 해야 함

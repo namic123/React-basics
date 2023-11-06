@@ -1,20 +1,31 @@
-import { Button } from "@chakra-ui/react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { Box, Input, Text } from "@chakra-ui/react";
 
-function App() {
-  const [number, setNumber] = useState(0);
-  function handleNumberIncrease() {
-    setNumber(number + 1);
+function App(props) {
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  function handleUserNameChange(e) {
+    setUsername(e.target.value);
   }
-  function handleNumberDecrease() {
-    setNumber(number - 1);
+  function handleUserEmailChange(e) {
+    setEmail(e.target.value);
   }
   return (
-    <>
-      <h1>{number}</h1>
-      <Button onClick={handleNumberIncrease}>증가</Button>
-      <Button onClick={handleNumberDecrease}>감소</Button>
-    </>
+    <div>
+      <Box>
+        <Input
+          type={"text"}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </Box>
+      <Box>
+        <Input type={"text"} value={email} onChange={handleUserEmailChange} />
+      </Box>
+      <Text>
+        {username}의 email은 {email}입니다.
+      </Text>
+    </div>
   );
 }
 

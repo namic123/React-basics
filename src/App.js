@@ -1,34 +1,44 @@
 import React, { useState } from "react";
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Button, Text } from "@chakra-ui/react";
 
-function MyComp2({ message }) {
+function ChildComp(props) {
   return (
-    <Box>
-      <Text>{message}</Text>
-    </Box>
+    <>
+      <Button onClick={props.onClick}>클릭!!</Button>
+    </>
   );
 }
 
-function MyComp1({ onClick }) {
+function SomeComp(props) {
   return (
-    <Box>
-      <Button onClick={onClick}>텍스트 바꾸기!</Button>
-    </Box>
+    <>
+      <ChildComp onClick={props.onClick} />
+    </>
+  );
+}
+
+function OtherChildComp(props) {
+  return (
+    <>
+      <Text>{props.text}</Text>
+    </>
+  );
+}
+
+function OtherComp(props) {
+  return (
+    <>
+      <OtherChildComp text={props.text} />
+    </>
   );
 }
 
 function App(props) {
-  const [message, setMessage] = useState("hello");
-  function handleButtonClick() {
-    setMessage("안녕하세요");
-  }
+  const [message, setMessage] = useState("원래 메세지!");
   return (
     <div>
-      {/*관습상 on으로 시작되는 이름으로 넘겨주어야 한다.*/}
-      <MyComp1 onClick={handleButtonClick}></MyComp1>
-      {/* MyComp1 에 있는 버튼이 클릭되면 */}
-      <MyComp2 message={message}></MyComp2>
-      {/*  MyCom2에 있는 text가 바뀌게 */}
+      <SomeComp onClick={() => setMessage("다른 메세지!")} />
+      <OtherComp text={message} />
     </div>
   );
 }

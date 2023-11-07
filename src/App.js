@@ -6,9 +6,7 @@ function MyInput(props) {
     <>
       <Input
         value={props.address}
-        onChange={(e) => {
-          props.onChange(e.target.value);
-        }}
+        onChange={(e) => props.onChange(e.target.value)}
       />
     </>
   );
@@ -26,12 +24,10 @@ function MyText(props) {
 
 function App(props) {
   const [address, setAddress] = useState("");
-  function handleInputChange(text) {
-    setAddress(text);
-  }
+
   return (
     <div>
-      <MyInput address={address} onChange={handleInputChange} />
+      <MyInput address={address} onChange={(text) => setAddress(text)} />
       <MyText address={address} />
     </div>
   );

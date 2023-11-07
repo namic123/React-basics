@@ -24,6 +24,7 @@ function App(props) {
   }
   return (
     <div>
+      {/*관습상 on으로 시작되는 이름으로 넘겨주어야 한다.*/}
       <MyComp1 onClick={handleButtonClick}></MyComp1>
       {/* MyComp1 에 있는 버튼이 클릭되면 */}
       <MyComp2 message={message}></MyComp2>

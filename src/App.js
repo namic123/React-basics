@@ -1,17 +1,64 @@
 import React, { useEffect, useState } from "react";
+import { Box, Select, Spinner, Text } from "@chakra-ui/react";
 import axios from "axios";
 
 function App(props) {
-  const [myState, setMyState] = useState("");
-  useEffect(() => {
-    axios
-      .get("/api/main1/sub1")
-      .then((response) => response.data) // 응답 데이터를 가져옴.
-      .then((data) => setMyState(data)) // 응답 데이터의 상태 저장
-      .catch((error) => console.log(error));
-  }, []);
+  const [customerId, setCustomerId] = useState(0);
+  const [customer, setCustomer] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
-  return <div>{myState}</div>;
+  useEffect(() => {
+    setIsLoading(true);
+    axios
+      .get("/api/main1/sub4?id=" + customerId)
+      .then((response) => response.data)
+      .then((data) => setCustomer(data))
+      .catch((error) => setCustomer(null))
+      .finally(() => setIsLoading(false));
+  }, [customerId]);
+
+  return (
+    <div>
+      <Select
+        placeholder="고객 번호를 선택하세요"
+        onChange={(e) => setCustomerId(e.target.value)}
+      >
+        {/*option[value=$]{$}*10*/}
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </Select>
+      <Box>
+        {isLoading === true ? (
+          <Spinner />
+        ) : customer === null ? (
+          <Text>존재하지 않는 고객입니다.</Text>
+        ) : (
+          <Text> 고객 이름 : {customer.name}</Text>
+        )}
+
+        {/* truthy falsy 표현식
+        {isLoading && <Spinner />}
+
+        {isLoading || (
+          <>
+            {customer === null ? (
+              <Text>조회한 고객이 없습니다. 다른 번호를 선택해주세요.</Text>
+            ) : (
+              <Text>고객 이름 : {customer.name}</Text>
+            )}
+          </>
+        )}*/}
+      </Box>
+    </div>
+  );
 }
 
 export default App;

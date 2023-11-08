@@ -24,10 +24,10 @@ function HomeComponent() {
 
           {/* 대신 react-router에서 제공하는 Link Component 사용*/}
           <Box>
-            <Link to={"apath"}> 에이로 가기, </Link>
+            <Link to={"apath"}>에이로 가기</Link>
           </Box>
           <Box>
-            <Link to={"bpath"}> 비로 가기 </Link>
+            <Link to={"bpath"}>에이로 가기</Link>
           </Box>
         </Flex>
         <Outlet />

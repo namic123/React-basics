@@ -1,27 +1,20 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { Button, Input, Text } from "@chakra-ui/react";
 
 function App(props) {
-  // get요청 /api/main1/sub2
-  // 받은 값으로 message state 업데이트
-
-  const [customer, setCustomer] = useState({});
+  const [number, setNumber] = useState(0);
+  const [text, setText] = useState("");
+  // 첫 번째 파라미터: 부작용이 있는 함수.
+  // 두 번째 파라미터:setup을 실행시키는 값의 나열(배열)
+  // 빈 배열이면 첫 렌더링 때만 실행됨
   useEffect(() => {
-    axios
-      .get("/api/main1/sub3")
-      .then((response) => response.data)
-      .then((data) => setCustomer(data))
-      .catch((error) => console.log(error));
-  }, []);
+    console.log("effect함수 실행됨");
+  }, [number, text]);
   return (
     <div>
-      <h1>{customer.name}</h1>
-      <h1>{customer.id}</h1>
-      <h1>{customer.contactName}</h1>
-      <h1>{customer.address}</h1>
-      <h1>{customer.city}</h1>
-      <h1>{customer.postalCode}</h1>
-      <h1>{customer.country}</h1>
+      <Button onClick={() => setNumber(number + 1)}>증가</Button>
+      <Text>{number}</Text>
+      <Input value={text} onChange={(e) => setText(e.target.value)} />
     </div>
   );
 }

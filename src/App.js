@@ -9,6 +9,16 @@ function App(props) {
   const [employeeId, setEmployeeId] = useState(0);
   const [employee, setEmployee] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [employeeIdList, setEmployeeIdList] = useState([]);
+
+  useEffect(() => {
+    // 직원번호 가져오기
+    axios
+      .get("/api/main1/sub6")
+      .then((response) => response.data)
+      .then((data) => setEmployeeIdList(data));
+  }, []);
+
   useEffect(() => {
     setLoading(true);
     axios
@@ -18,22 +28,16 @@ function App(props) {
       .catch((error) => setEmployee(null))
       .finally(setLoading(false));
   }, [employeeId]);
+
   return (
     <div>
       <Select
         placeholder="직원의 번호를 선택하세요."
         onChange={(e) => setEmployeeId(e.target.value)}
       >
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
+        {employeeIdList.map((id) => (
+          <option value={id}>{id}</option>
+        ))}
       </Select>
       <Box>
         {loading === true ? (
